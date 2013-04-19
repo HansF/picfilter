@@ -1,0 +1,17 @@
+*~
+*.pyc
+.DS_Store
+deploy/*
+deploy_tmp/*
+img/*
+img/*
+*.cprof
+*.profile
+*.log
+pylint*
+*.tmproj
+test_site
+site.log
+settings.pyc
+*.jpg
+*.JPG
