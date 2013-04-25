@@ -1,7 +1,6 @@
-<?php
-include 'settings.php';
-       ?>
-        <!DOCTYPE html>
+<?php 
+	require 'settings.php' 
+?><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
