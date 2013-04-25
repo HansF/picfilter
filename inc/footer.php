@@ -17,6 +17,8 @@
     <script src="./js/bootstrap-collapse.js"></script>
     <script src="./js/bootstrap-carousel.js"></script>
     <script src="./js/bootstrap-typeahead.js"></script>
+    <!-- easybox concatenated -->
+    <script type="text/javascript" src="./easybox/distrib.min.js"></script>
 
   </body>
 </html>

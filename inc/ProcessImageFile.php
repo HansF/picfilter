@@ -19,6 +19,7 @@ function ProcessImageFile( $importpath, $file,  $caption){
     ResizeTheImage  ($importpath, $file);
     WaterMark       ($importpath, $file, $caption);
     Makethumb       ($importpath, $file);
+    MakeMedium       ($importpath, $file);
 }
 function WaterMark($importpath, $file, $caption){
     $main_img = $importpath.$file; // main big photo / picture
@@ -80,6 +81,34 @@ function Makethumb(  $importpath, $file){
     imagecopyresampled($image_p, $image, 0, 0, 0, 0, $width, $height, $width_orig, $height_orig);
 
     $importthumbpath = "./images/thumbs/";
+    // Output
+    imagejpeg($image_p, $importthumbpath.$file, 60);
+}
+function MakeMedium(  $importpath, $file){
+        // The file
+    $filename = $importpath.$file;
+    //echo "||||Makethumb".$importpath ." -- ".$file."==$filename==";
+
+    // Set a maximum height and width
+    $width = 640;
+    $height = 640;
+    // Get new dimensions
+    list($width_orig, $height_orig) = getimagesize($filename);
+
+    $ratio_orig = $width_orig/$height_orig;
+
+    if ($width/$height > $ratio_orig) {
+       $width = $height*$ratio_orig;
+    } else {
+       $height = $width/$ratio_orig;
+    }
+
+    // Resample
+    $image_p = imagecreatetruecolor($width, $height);
+    $image = imagecreatefromjpeg($filename);
+    imagecopyresampled($image_p, $image, 0, 0, 0, 0, $width, $height, $width_orig, $height_orig);
+
+    $importthumbpath = "./images/medium/";
     // Output
     imagejpeg($image_p, $importthumbpath.$file, 60);
 }
