@@ -1,6 +1,7 @@
 <?php
 
 include('inc/header.php');
+include('inc/ProcessImageFile.php');
 if (isset($_GET['caption'])){
     $dir    = $importpath;
     $files = scandir($dir);
@@ -11,7 +12,7 @@ if (isset($_GET['caption'])){
     echo "gimme a caption dude";
     ?>
 <form method="GET" action="">
-    <input type="text" name="caption">
+   Caption: <input type="text" name="caption">
     <input type="submit">
 </form>
 
@@ -19,9 +20,7 @@ if (isset($_GET['caption'])){
 }
 
 
-function ProcessImageFile( $file){
-echo $file; 
-}
+
 include('inc/footer.php');
 
 ?>
