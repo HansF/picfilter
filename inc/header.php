@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<?php
+include 'settings.php';
+       ?>
+        <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -42,8 +45,8 @@
           <a class="brand" href="#">Project name</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
+              <li><a href="index.php">Home</a></li>
+              <li><a href="admin.php">Admin</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
           </div><!--/.nav-collapse -->
