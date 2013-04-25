@@ -6,14 +6,15 @@ include('inc/header.php');
 
 <p>All this stuff is without confirmation so tread lightly</p>
 
-<a href="?action=reset">Reset the database.</a>
+<p><a href="?action=reset">Reset the database.</a></p>
 <?php
     if(isset($_GET['action'])&&$_GET['action']=="reset"){
         $db = sqlite_open($dbpath, 0666, $sqliteerror);
-        sqlite_query($db, 'vacuum couples;');
-        sqlite_query($db, 'vacuum images;');
+        sqlite_query($db, "DELETE FROM 'couples'");
+        sqlite_query($db, "DELETE FROM 'images'");
         }
 ?>
+<p><a href="importer.php">Import batch.</a></p>
 
 
 <?
