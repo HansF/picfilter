@@ -13,3 +13,6 @@ site.log
 settings.pyc
 *.jpg
 *.JPG
+/nbproject/private/
+/db/*.sqlite
+/nbproject
