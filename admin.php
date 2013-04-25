@@ -9,7 +9,9 @@ include('inc/header.php');
 <a href="?action=reset">Reset the database.</a>
 <?php
     if(isset($_GET['action'])&&$_GET['action']=="reset"){
-        unlink('./db/mysqlitedb.sqlite');
+        $db = sqlite_open($dbpath, 0666, $sqliteerror);
+        sqlite_query($db, 'vacuum couples;');
+        sqlite_query($db, 'vacuum images;');
         }
 ?>
 

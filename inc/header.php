@@ -1,5 +1,5 @@
 <?php 
-	require 'settings.php' 
+	require 'inc/settings.php' 
 ?><!DOCTYPE html>
 <html lang="en">
   <head>
