@@ -1,13 +1,23 @@
 <?php
 
 include('inc/header.php');
-// On Windows:
-$dir    = $importpath;
-$files = scandir($dir);
+if (isset($_GET['caption'])){
+    $dir    = $importpath;
+    $files = scandir($dir);
+    foreach ($files as $file){
+            if ($file !="." && $file !="..") ProcessImageFile($importpath.$file);
+    }   
+}else{
+    echo "gimme a caption dude";
+    ?>
+<form method="GET" action="">
+    <input type="text" name="caption">
+    <input type="submit">
+</form>
 
-foreach ($files as $file){
-	if ($file !="." && $file !="..") ProcessImageFile($importpath.$file);
+    <?
 }
+
 
 function ProcessImageFile( $file){
 echo $file; 
