@@ -8,10 +8,9 @@ include('inc/header.php');
 
 <a href="?action=reset">Reset the database.</a>
 <?php
-if($_GET['action']=="reset"){
-    unlink($filename)
-}
-
+    if(isset($_GET['action'])&&$_GET['action']=="reset"){
+        unlink('./db/mysqlitedb.sqlite');
+        }
 ?>
 
 
