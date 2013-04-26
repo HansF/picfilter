@@ -16,6 +16,6 @@ settings.pyc
 /nbproject/private/
 /db/*.sqlite
 /nbproject
-/images/import/*
-/images/thumbs/*
-/images/watermark/*
+/images/import/*.jpg
+/images/thumbs/*.jpg
+/images/watermark/*.jpg
