@@ -9,9 +9,9 @@ include('inc/header.php');
 <p><a href="?action=reset">Reset the database.</a></p>
 <?php
     if(isset($_GET['action'])&&$_GET['action']=="reset"){
-        $db = sqlite_open($dbpath, 0666, $sqliteerror);
-        sqlite_query($db, "DELETE FROM 'couples'");
-        sqlite_query($db, "DELETE FROM 'images'");
+        $db = new SQLite3($dbpath);
+        $db->querySingle("DELETE FROM 'couples'");
+        $db->querySingle("DELETE FROM 'images'");
         }
 ?>
 <p><a href="importer.php">Import batch.</a></p>
