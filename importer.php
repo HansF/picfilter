@@ -11,10 +11,7 @@ if (isset($_GET['caption'])){
     $db = new SQLite3($dbpath);
     foreach ($files as $file){ // loop over files 
                 if ($file !="." && $file !=".."){  //not a folder 
-                    "SELECT count(*) FROM \"images\" WHERE \"path\" = '$file'";
                     $result = $db->querySingle("SELECT count(*) FROM \"images\" WHERE \"path\" = '$file'");
-                    var_dump($result);
-                    print_r($result);  
                     if ($result==0){ // and not allready in the db...
                         ProcessImageFile($importpath,$file,$_GET['caption']); // process it 
                         $db->querySingle("INSERT INTO 'images' ('path','couple') VALUES ('$file',NULL)"); //add it to the database.
@@ -25,7 +22,7 @@ if (isset($_GET['caption'])){
        
     $stop = time();
     $duration = $stop-$start;
-    echo "<p>Process $counter pictures finished in ".$duration." seconds</p><p>s";
+    echo "<p>Process $counter pictures finished in ".$duration." seconds</p>";
  /*   $db = sqlite_open($dbpath, 0777, $sqliteerror) ;
     $result = sqlite_query($db, 'select * from images');
     while ($row = sqlite_fetch_array($result)){
