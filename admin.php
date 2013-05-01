@@ -19,7 +19,7 @@ include('inc/header.php');
 <p><a href="couples.php">Add/edit couples.</a></p>
 
 <h2>debug</h2>
-<p><a href="db/phpliteadmin.php">Check the database.</a></p>
+<p><a href="db/phpliteadmin.php" target="_blank">Check the database.</a></p>
 
 <?
 include('inc/footer.php');
