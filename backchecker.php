@@ -14,6 +14,7 @@ $db = new SQLite3($dbpath);
   <input type="hidden" name="x2" value="" />
   <input type="hidden" name="y2" value="" />
   <input type="submit" name="submit" value="Submit" />
+  <input type="submit" name="niemand" value="Niemand" />
 </form>
 
 <form action="backchecker.php" method="post">
@@ -21,7 +22,6 @@ $db = new SQLite3($dbpath);
   <input type="hidden" name="y1" value="" />
   <input type="hidden" name="x2" value="" />
   <input type="hidden" name="y2" value="" />
-  <input type="submit" name="submit" value="Submit" />
 </form>
 
 <?php 
@@ -30,6 +30,13 @@ $db = new SQLite3($dbpath);
     print_r($_POST);
    ?>
 
+<form action="backchecker.php" method="post">
+  <input type="hidden" name="x1" value="" />
+  <input type="hidden" name="y1" value="" />
+  <input type="hidden" name="x2" value="" />
+  <input type="hidden" name="y2" value="" />
+  <input type="submit" name="Blur" value="Blur!" />
+</form>
 <?php 
 
 include('inc/footer.php');
