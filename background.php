@@ -12,7 +12,7 @@ $db = new SQLite3($dbpath);
 <?php 
     $result = $db->query('select * from images where background=0');
     while ($row = $result->fetchArray()) {
-       echo " <a href='./images/medium/".$row['path']."' title='Image caption' class='lightbox' data-group='set'><img src='./images/thumbs/".$row['path']."'></a>";
+       echo " <a href='./images/medium/".$row['path']."' title='".$row['path']."' class='lightbox' data-group='set'><img src='./images/thumbs/".$row['path']."'></a>";
     }
    ?>
 
