@@ -123,4 +123,41 @@ function MakeMedium(  $importpath, $file){
     imagejpeg($image_p, $importthumbpath.$file, 60);
     return;
 }
+
+function Makeblur(  $importpath, $file, $x, $y, $w, $h){
+        // The file
+    $filename = $importpath.$file;
+    //echo "||||Makethumb".$importpath ." -- ".$file."==$filename==";
+        $image2 = imagecreate($width, $height);
+imagecopy  ( $image2  , $image  , 0  , 0  , $x  , $y  , $width  , $height);
+imagefilter($image, IMG_FILTER_GAUSSIAN_BLUR);
+imagecopy ($image, $image2, $x, $y, 0, 0, $width, $height);
+
+    // Set a maximum height and width
+    $width = 640;
+    $height = 640;
+    // Get new dimensions
+    list($width_orig, $height_orig) = getimagesize($filename);
+
+    $ratio_orig = $width_orig/$height_orig;
+
+    if ($width/$height > $ratio_orig) {
+       $width = $height*$ratio_orig;
+    } else {
+       $height = $width/$ratio_orig;
+    }
+
+    // Resample
+    $image_p = imagecreatetruecolor($width, $height);
+    $image = imagecreatefromjpeg($filename);
+    imagecopyresampled($image_p, $image, 0, 0, 0, 0, $width, $height, $width_orig, $height_orig);
+
+    $importthumbpath = "./images/medium/";
+    // Output
+    imagejpeg($image_p, $importthumbpath.$file, 60);
+    return;
+}
+
+
+
 ?>

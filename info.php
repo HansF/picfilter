@@ -2,8 +2,8 @@
 
 include('inc/header.php');
 // On Windows:
-echo "hello world";
 
+phpinfo();
 
 include('inc/footer.php');
 

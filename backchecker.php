@@ -1,6 +1,7 @@
 <?php
 
 include('inc/header.php');
+include('inc/ProcessImageFile.php');
 $db = new SQLite3($dbpath);
 
 ?>
@@ -28,6 +29,10 @@ $db = new SQLite3($dbpath);
     $result = $db->querySingle('select path from images where background=0 limit 0,1');
     echo "<img ID='editpicture' src='./images/medium/$result' />";
     print_r($_POST);
+    if (isset($_POST['Blur'])&&($_POST['Blur'] == "Blur!")){
+
+          print_r($_POST); 
+    }
    ?>
 
 <form action="backchecker.php" method="post">
