@@ -31,10 +31,18 @@ if (isset($_GET['caption'])){
        */
 }else{
     // we've got NO caption, so let's ask for one! 
-    echo "gimme a caption dude";
-    ?>
+    echo "<p>The import folder is : <strong>$importpath</strong><br/>gimme a caption dude</p>";
+    ?><script type="text/javascript">
+    function focusIt()
+    {
+      var mytext = document.getElementById("caption"); 
+      mytext.focus(); 
+    }
+    onload = focusIt;
+</script>
+
     <form method="GET" action="">
-       Caption: <input type="text" name="caption">
+       Caption: <input type="text" name="caption" id="caption">
         <input type="submit">
     </form>
     <?php

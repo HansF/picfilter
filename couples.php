@@ -4,12 +4,22 @@ include('inc/header.php');
 $db = new SQLite3($dbpath);
 
 ?>
+
+<script type="text/javascript">
+    function focusIt()
+    {
+      var mytext = document.getElementById("name"); 
+      mytext.focus(); 
+    }
+    onload = focusIt;
+</script>
+
 <h1>Couples</h1>
 <h4>Add Couple</h4>
 
 <p>Add couple's name, this is used in database and filenames, so no funky chars (",',\,...) plz. </p>
     <form method="Post" action="couples.php">
-       Caption: <input type="text" name="name">
+       Couple's name: <input type="text" name="name" id="name">
         <input type="submit">
     </form>
 

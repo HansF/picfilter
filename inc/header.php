@@ -18,6 +18,7 @@
     </style>
     <link href="./css/bootstrap-responsive.css" rel="stylesheet">
     <link rel="stylesheet" href="./easybox/styles/default/easybox.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="./css/imgareaselect-animated.css" type="text/css" media="screen" />
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -46,8 +47,8 @@
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li><a href="index.php">Home</a></li>
+              <li><a href="background.php">Background people</a></li>
               <li><a href="admin.php">Admin</a></li>
-              <li><a href="#contact">Contact</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
