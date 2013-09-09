@@ -12,6 +12,7 @@ include('inc/header.php');
         $db = new SQLite3($dbpath);
         $db->querySingle("DELETE FROM 'couples'");
         $db->querySingle("DELETE FROM 'images'");
+		echo "<p class='alert'>You've now got a fresh new clean database. How cool is that?</p>";
         }
 ?>
 <p><a href="importer.php">Import batch.</a></p>

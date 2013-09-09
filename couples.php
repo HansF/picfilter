@@ -40,7 +40,7 @@ $db = new SQLite3($dbpath);
         $name = $_POST['name'];
         $db = new SQLite3($dbpath);
         $db->querySingle("INSERT INTO \"couples\" (\"id\",\"couple\") VALUES (\"".md5($name)."\",\"".$name."\")");
-        echo "<p class='alert'>$name is added to to databadizzle</p>";
+        echo "<p class='alert'>Thank you master, per your request, I've added <strong>$name</strong> to the database.</p>";
         }
 
 
