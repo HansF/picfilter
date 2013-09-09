@@ -9,10 +9,7 @@ include('inc/header.php');
 <p><a href="?action=reset">Reset the database.</a></p>
 <?php
     if(isset($_GET['action'])&&$_GET['action']=="reset"){
-        $db = new SQLite3($dbpath);
-        $db->querySingle("DELETE FROM 'couples'");
-        $db->querySingle("DELETE FROM 'images'");
-		echo "<p class='alert'>You've now got a fresh new clean database. How cool is that?</p>";
+		ResetDatabase($dbpath);
         }
 ?>
 <p><a href="importer.php">Import batch.</a></p>
@@ -32,10 +29,24 @@ if (is_dir($rootdir."images")==FAlSE){
 		mkdir ($rootdir."images/thumbs");
 		mkdir ($rootdir."images/watermark");
 		echo "<p class='alert'>Created the needed folders in $rootdir. That's how I do it.</p>";
-
 }
+
+if ( file_exists($dbpath)==FALSE ) ResetDatabase($dbpath);
+
 include('inc/footer.php');
-
-
+ 
+function ResetDatabase($dbpath){
+		if ( file_exists($dbpath) ) unlink ($dbpath);
+		$fp = fopen($dbpath, "a+");
+		fclose($fp);
+        $db = new SQLite3($dbpath);
+        $db->querySingle('CREATE TABLE couples ( id varchar(250), couple varchar(250))');
+        $db->querySingle('CREATE TABLE images ( path varchar(250),couple varchar(250))');
+        $db->querySingle('CREATE INDEX "pIndex" ON "images" ("path" ASC);');
+        $db->querySingle('CREATE INDEX "pIndex2" ON "couples" ("id" ASC);');
+        $db->querySingle("DELETE FROM 'couples'");
+        $db->querySingle("DELETE FROM 'images'");
+		echo "<p class='alert'>You've now got a fresh new clean database. How cool is that?</p>";
+}
 
 ?>
