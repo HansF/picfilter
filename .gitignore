@@ -18,3 +18,4 @@ settings.pyc
 /images/import/*.jpg
 /images/thumbs/*.jpg
 /images/watermark/*.jpg
+/db/mysqlitedb.sqlite
