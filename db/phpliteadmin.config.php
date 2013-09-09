@@ -10,7 +10,9 @@
 // Please see http://code.google.com/p/phpliteadmin/wiki/Configuration for more details
 
 //password to gain access
-$password = 'admin';
+$password = 'xxxxxx';
+
+include ('../inc/settings.php');
 
 //directory relative to this file to search for databases (if false, manually list databases in the $databases variable)
 $directory = '.';

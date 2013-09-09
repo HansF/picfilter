@@ -22,7 +22,20 @@ include('inc/header.php');
 <h2>debug</h2>
 <p><a href="db/phpliteadmin.php" target="_blank">Check the database.</a></p>
 
-<?
+<?php
+
+// just for handyness... trow in req folder
+if (is_dir($rootdir."images")==FAlSE){
+		mkdir ($rootdir."images");
+		mkdir ($rootdir."images/import");
+		mkdir ($rootdir."images/medium");
+		mkdir ($rootdir."images/thumbs");
+		mkdir ($rootdir."images/watermark");
+		echo "<p class='alert'>Created the needed folders in $rootdir. That's how I do it.</p>";
+
+}
 include('inc/footer.php');
+
+
 
 ?>
