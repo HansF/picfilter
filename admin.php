@@ -27,6 +27,7 @@ if (is_dir($rootdir."images")==FAlSE){
 		mkdir ($rootdir."images/import");
 		mkdir ($rootdir."images/medium");
 		mkdir ($rootdir."images/thumbs");
+		mkdir ($rootdir."images/tmp");
 		mkdir ($rootdir."images/watermark");
 		echo "<p class='alert'>Created the needed folders in $rootdir. That's how I do it.</p>";
 }
