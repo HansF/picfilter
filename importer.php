@@ -53,7 +53,7 @@ if (isset($_POST['caption'])){
        */
 }else{
     // we've got NO caption, so let's ask for one! 
-    echo "<div class='alert alert-info'>Can Master please provide me with a caption?</div>";
+    echo "<div class='alert alert-info'>Can Master please provide me with a path and a caption?</div>";
     ?><script type="text/javascript">
     function focusIt()
     {
