@@ -7,7 +7,7 @@ $db = new SQLite3($dbpath);
 <h1>People in the background</h1>
 <h4>Unchecked</h4>
 
-<p><a href="backchecker.php">Check and blur people now!</a></p>
+<div class='alert alert-info'><a href="backchecker.php">Check and blur people now!</a></div>
 
 <?php 
     $result = $db->query('select * from images where background=0');
@@ -18,7 +18,7 @@ $db = new SQLite3($dbpath);
 
 <h4>Checked</h4>
 
-<p>There should be no people on the background of these pictures, or they should be blurred out.</p>
+<div class='alert alert-info'>There should be no people on the background of these pictures, or they should be blurred out.</div>
 
 <?php 
     $result = $db->query('select * from images where background=1');

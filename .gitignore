@@ -15,7 +15,7 @@ settings.pyc
 *.JPG
 /nbproject/private/
 /nbproject
-/images/import/*.jpg
-/images/thumbs/*.jpg
-/images/watermark/*.jpg
+/images/import/*
+/images/thumbs/*
+/images/watermark/*
 /db/mysqlitedb.sqlite
