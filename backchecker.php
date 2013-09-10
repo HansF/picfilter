@@ -15,25 +15,44 @@ $db = new SQLite3($dbpath);
   <input type="hidden" name="x2" value="" />
   <input type="hidden" name="y2" value="" />
   <input type="submit" name="submit" value="All Fine!" />
-  <input type="submit" name="Blur" value="Blur!" /><br/>
+  <input type="submit" name="Blur" value="Blur!" />
+  <input type="submit" name="Reset" value="Reset!" /><br/>
 
-
-
-  <input type="hidden" name="x1" value="" />
-  <input type="hidden" name="y1" value="" />
-  <input type="hidden" name="x2" value="" />
-  <input type="hidden" name="y2" value="" />
-</form>
 
 
 <?php 
-    $result = $db->querySingle('select path from images where background=0 limit 0,1');
-    echo "<img ID='editpicture' src='./images/medium/$result' />";
-    if (isset($_POST['Blur'])&&($_POST['Blur'] == "Blur!")){
-          print_r($_POST); 
-		 // Makeblur(  $importpath, $result, 10, 20, 20, 20);
+	if (isset($_POST['submit'])&&($_POST['submit'] == "All Fine!")){
+			if (file_exists("./images/tmp/".$_POST['result'])) rename ("./images/tmp/".$_POST['result'],"./images/medium/".$_POST['result']);
+			$db->querySingle("UPDATE 'images' SET 'background'='1' WHERE path = '".$_POST['result']."'");
+			if (isset($_SESSION['edits'])){ 		  
+				Makebigblur( $_POST['result'], $_SESSION['edits']);
+			}
+			unset($_SESSION['edits']); 
     }
+    $result = $db->querySingle('select path from images where background=0 limit 0,1');
+	if (file_exists("./images/tmp/".$result)){
+		$imagelink = "<img ID='editpicture' src='./images/tmp/".$result."' />";
+		$editpath = "tmp";
+		}else{
+		$imagelink = "<img ID='editpicture' src='./images/medium/".$result."' />";
+		$editpath = "medium";
+		}
+	if (isset($_POST['Blur'])&&($_POST['Blur'] == "Blur!")){
+          // print_r($_SESSION['edits']); 
+		  Makeblur(  './images/'.$editpath.'/', $result, $_POST['x1'], $_POST['y1'], $_POST['x2']-$_POST['x1'], $_POST['y2']-$_POST['y1']);
+		  $imagelink = "<img ID='editpicture' src='./images/tmp/".$result."' />";
+    }
+	if (isset($_POST['Reset'])&&($_POST['Reset'] == "Reset!")){
+			if (file_exists("./images/tmp/".$result)) unlink("./images/tmp/".$result);
+			unset($_SESSION['edits']); 
+			$imagelink = "<img ID='editpicture' src='./images/medium/".$result."' />";
+    }
+
+	echo $imagelink;
    ?>
+     <input type="hidden" name="result" value="<?php echo $result ?>" />
+
+   </form>
 <?php 
 
 include('inc/footer.php');

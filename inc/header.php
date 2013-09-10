@@ -1,4 +1,5 @@
 <?php 
+	session_start();
 	require 'inc/settings.php' 
 ?><!DOCTYPE html>
 <html lang="en">
