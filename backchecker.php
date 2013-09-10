@@ -28,10 +28,9 @@ $db = new SQLite3($dbpath);
 <?php 
     $result = $db->querySingle('select path from images where background=0 limit 0,1');
     echo "<img ID='editpicture' src='./images/medium/$result' />";
-    print_r($_POST);
     if (isset($_POST['Blur'])&&($_POST['Blur'] == "Blur!")){
-
           print_r($_POST); 
+		  Makeblur(  $importpath, $result, 10, 20, 20, 20);
     }
    ?>
 
