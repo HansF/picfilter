@@ -6,22 +6,10 @@ $db = new SQLite3($dbpath);
 
 ?>
 <h1>People in the background</h1>
-<h4>Unchecked</h4>
-
-
-<form action="backchecker.php" method="post">
-  <input type="hidden" name="x1" value="" />
-  <input type="hidden" name="y1" value="" />
-  <input type="hidden" name="x2" value="" />
-  <input type="hidden" name="y2" value="" />
-  <input type="submit" name="submit" value="All Fine!" />
-  <input type="submit" name="Blur" value="Blur!" />
-  <input type="submit" name="Reset" value="Reset!" /><br/>
-
 
 
 <?php 
-	if (isset($_POST['submit'])&&($_POST['submit'] == "All Fine!")){
+	if (isset($_POST['submit'])&&($_POST['submit'] == "All Fine!")&&($_POST['result']!="")){
 			if (file_exists("./images/tmp/".$_POST['result'])) rename ("./images/tmp/".$_POST['result'],"./images/medium/".$_POST['result']);
 			$db->querySingle("UPDATE 'images' SET 'background'='1' WHERE path = '".$_POST['result']."'");
 			if (isset($_SESSION['edits'])){ 		  
@@ -48,7 +36,25 @@ $db = new SQLite3($dbpath);
 			$imagelink = "<img ID='editpicture' src='./images/medium/".$result."' />";
     }
 
-	echo $imagelink;
+	if($result==""){
+		echo "<br/><div class='alert alert-success'>No more people to blur. Another job wel done!</div>";
+		}else{
+		?>
+		<h4>Unchecked</h4>
+
+
+<form action="backchecker.php" method="post">
+  <input type="hidden" name="x1" value="" />
+  <input type="hidden" name="y1" value="" />
+  <input type="hidden" name="x2" value="" />
+  <input type="hidden" name="y2" value="" />
+  <input type="submit" name="submit" value="All Fine!" />
+  <input type="submit" name="Blur" value="Blur!" />
+  <input type="submit" name="Reset" value="Reset!" /><br/>
+
+<?php
+		echo $imagelink;
+		}
    ?>
      <input type="hidden" name="result" value="<?php echo $result ?>" />
 

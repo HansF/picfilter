@@ -44,7 +44,7 @@ if (isset($_POST['caption'])){
        
     $stop = time();
     $duration = $stop-$start;
-    echo "<div class='alert alert-info'>Pictures finished in ".$duration." seconds, <a href='background.php'>now go edit them</a><em>...if Master Pleases...</div>";
+    echo "<div class='alert alert-info'>Pictures finished in ".$duration." seconds, <a href='backchecker.php'>now go edit them</a><em>...if Master Pleases...</div>";
  /*   $db = sqlite_open($dbpath, 0777, $sqliteerror) ;
     $result = sqlite_query($db, 'select * from images');
     while ($row = sqlite_fetch_array($result)){
