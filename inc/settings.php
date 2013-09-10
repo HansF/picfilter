@@ -1,6 +1,6 @@
 <?php
 $rootdir = str_replace("\\","/",str_replace("inc","", realpath(dirname(__FILE__)))); // get true path from location of this file
-$password = "admin"; 
+$password = "shibari"; 
 $protected="no";
 
 //$rootdir = "E:/vdrive/web/"; //use front slashes in windows also , always put a trailing slash :-)

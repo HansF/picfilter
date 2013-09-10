@@ -47,6 +47,7 @@
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li><a href="index.php">Home</a></li>
+              <li><a href="importer.php">Import</a></li>
               <li><a href="background.php">Background people</a></li>
               <li><a href="admin.php">Admin</a></li>
             </ul>

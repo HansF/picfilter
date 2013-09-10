@@ -41,7 +41,8 @@ function ResetDatabase($dbpath){
 		fclose($fp);
         $db = new SQLite3($dbpath);
         $db->querySingle('CREATE TABLE couples ( id varchar(250), couple varchar(250))');
-        $db->querySingle('CREATE TABLE images ( path varchar(250),couple varchar(250), background INTEGER DEFAULT 0)');
+        //$db->querySingle('CREATE TABLE images ( path varchar(250),couple varchar(250), background INTEGER DEFAULT 0)');
+        $db->querySingle("CREATE TABLE images ('id' INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, path TEXT, couple TEXT, background INTEGER default 0 )");
         $db->querySingle('CREATE INDEX "pIndex" ON "images" ("path" ASC);');
         $db->querySingle('CREATE INDEX "pIndex2" ON "couples" ("id" ASC);');
         $db->querySingle("DELETE FROM 'couples'");
