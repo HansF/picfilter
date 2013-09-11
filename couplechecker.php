@@ -11,13 +11,13 @@ if (isset($_GET['id'])&&($_GET['action']=="assign")){
 	}
 ?>
 <h1>Couples</h1>
-
+<p>Remember, you can <a href="couples.php">add/edit couples here</a>.</p>
 <?php 
 
 if ((isset($_GET['id']))&&($_GET['action']=="edit")){
 		$result = $_GET['id'];
 	}else{
-		$result = $db->querySingle('select path from images where couple=0 ORDER BY id ASC limit 0,1 ');
+		$result = $db->querySingle('select path from images where couple=0 AND background=1 ORDER BY id ASC limit 0,1 ');
 	}
 	
 $imagelink = "<br/><br/><img ID='editpicture' src='./images/medium/".$result."' />";
@@ -30,7 +30,7 @@ while ($row = $results->fetchArray()) {
 
 		
 if($result==""){
-	echo "<br/><div class='alert alert-success'>No more people to recognize. Another job wel done!</div>";
+	echo "<br/><div class='alert alert-success'>No more people to recognize, two possibilities:<ul><li> Another job wel done! Or....</li><li> You need to <a href='background.php'>check for people in the background</a> before you can assign them.</li></div>";
 	}else{
 echo $imagelink;
 ?>
