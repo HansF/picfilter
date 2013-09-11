@@ -1,6 +1,7 @@
 <?php
 include('inc/header.php');
 include('inc/settings.php');
+$db = new SQLite3($dbpath);
 ?>
 <div class="row">
 <div class="span4">
@@ -27,8 +28,20 @@ include('inc/settings.php');
 <div class="span4">
 <h2>debug</h2>
 <p><a href="db/phpliteadmin.php" target="_blank">Check the database.</a></p>
-
+<h4>Export Pictures</h4>
 <?php
+$numbercouples = $db->querySingle('select COUNT(id) as numbercouples from couples ');
+	if ($numbercouples==0){
+			echo "No couples created yet, so nothing to export.";
+		}else{
+			$results = $db->query('select id, couple from couples ');
+			echo "<ul>";
+			while ($row = $results->fetchArray()) {
+				echo "<li><a href='export.php?couple=".$row['id']."'>".$row['couple']."</a></li> ";
+				}
+			echo "<ul>";
+		}
+
 if(isset($_GET['action'])&&$_GET['action']=="resetdb"){
 		ResetDatabase($dbpath);
         }
@@ -42,6 +55,7 @@ function CreateDir($rootdir){
 		mkdir ($rootdir."images/thumbs");
 		mkdir ($rootdir."images/tmp");
 		mkdir ($rootdir."images/watermark");
+		mkdir ($rootdir."images/export");
 		echo "<p class='alert'>Created the needed folders in $rootdir. That's how I do it.</p>";
 }
 
