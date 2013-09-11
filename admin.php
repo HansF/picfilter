@@ -2,7 +2,9 @@
 
 include('inc/header.php');
 ?>
-<h1>Adminpage</h1>
+<div class="row">
+<div class="span4">
+<h2>Adminpage</h2>
 
 <p>All this stuff is without confirmation so tread lightly</p>
 
@@ -16,11 +18,12 @@ include('inc/header.php');
 
 <p><a href="couples.php">Add/edit couples.</a></p>
 
+</div>
+<div class="span4">
 <h2>debug</h2>
 <p><a href="db/phpliteadmin.php" target="_blank">Check the database.</a></p>
 
 <?php
-
 // just for handyness... trow in req folder
 if (is_dir($rootdir."images")==FAlSE){
 		mkdir ($rootdir."images");
@@ -52,3 +55,5 @@ function ResetDatabase($dbpath){
 }
 
 ?>
+</div>
+</div>
