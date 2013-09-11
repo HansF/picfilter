@@ -4,7 +4,6 @@ include('inc/header.php');
 $db = new SQLite3($dbpath);
 $couple = $_GET['couple'];
 $result = $db->query("select * from images where couple = $couple ");
-echo "select * from images where couple = $couple ";
 while ($row = $result->fetchArray()) {
 	$files[] = $rootdir."./images/watermark/".$row['path']; 
 	}
