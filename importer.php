@@ -37,7 +37,7 @@ if (isset($_POST['caption'])){
                     $result = $db->querySingle("SELECT count(*) FROM \"images\" WHERE \"path\" = '$file'");
                     if ($result==0){ // and not allready in the db...
                         ProcessImageFile($importpath,$file,$_POST['caption']); // process it 
-                        $db->querySingle("INSERT INTO 'images' ('path','couple') VALUES ('$file',NULL)"); //add it to the database.
+                        $db->querySingle("INSERT INTO 'images' ('path','couple') VALUES ('$file',0)"); //add it to the database.
                     }
                 }
         }

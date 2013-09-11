@@ -39,7 +39,7 @@ $db = new SQLite3($dbpath);
     if(isset($_POST['name'])&&$_POST['name']!=""){
         $name = $_POST['name'];
         $db = new SQLite3($dbpath);
-        $db->querySingle("INSERT INTO \"couples\" (\"id\",\"couple\") VALUES (\"".md5($name)."\",\"".$name."\")");
+        $db->querySingle("INSERT INTO \"couples\" (\"couple\") VALUES (\"".$name."\")");
         echo "<p class='alert'>Thank you master, per your request, I've added <strong>$name</strong> to the database.</p>";
         }
 
